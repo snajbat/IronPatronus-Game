@@ -1,0 +1,11 @@
+body {
+  background: rgb(22, 22, 22);
+}
+canvas{
+  border: 1px solid black;
+}
+button{
+  font-size: 30px;
+  padding: 5px;
+  background-color: grey;
+}
