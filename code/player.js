@@ -3,7 +3,7 @@ function Player(game){
   this.x = 150;
   this.y0 = this.game.canvas.height * 0.70;
   this.y= this.y0;
-  this.width = 50;
+  this.width = 80;
   this.height = 60;
 
   this.img = new Image();
@@ -17,11 +17,11 @@ function Player(game){
 }
 Player.prototype.draw = function() {
   this.game.ctx.drawImage(this.img, 
-  this.img.frameIndex * Math.floor(this.img.width / this.img.frames),
+  this.x,
   this.y,
-  Math.floor(this.img.width / this.img.frames),
+  this.width,
   this.height);
-  this.animateImg();
+  // this.animateImg();
 }
 
 Player.prototype.keyEvents = function() {
