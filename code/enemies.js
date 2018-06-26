@@ -1,13 +1,13 @@
 function Enemy(game){
   this.game = game;
-  var random = Math.floor(Math.random()*50);
+  var random = Math.floor(Math.random()*300);
   this.x = this.game.canvas.width;
-  this.y = 320 + random;
+  this.y = 50 +random;
   
   this.img = new Image();
-  this.img.src = "../images/dementor.png";
+  this.img.src = "../images/TRAJE_DEMENTOR.png";
 
-  this.width = 80;
+  this.width = 70;
   this.height = 80;
   this.moveX = 5;
 }

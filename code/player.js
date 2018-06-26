@@ -10,8 +10,10 @@ function Player(game){
   this.img.src = "../images/harry.png";
 
   this.speedY = 1;
+  this.speedX = 1;
   this.img.frames = 4;
   this.img.frameIndex = 0;
+  this.magicBalls = [];
 
   this.keyEvents();
 }
@@ -22,14 +24,34 @@ Player.prototype.draw = function() {
   this.width,
   this.height);
   // this.animateImg();
+  this.magicBalls.forEach(function(magic) {
+    magic.draw();
+    magic.move();
+  });
+  
+  this.magicBalls = this.magicBalls.filter(function(magic){
+    return magic.x <= this.game.canvas.width;
+  }.bind(this));
+}
+
+Player.prototype.shoot = function(){
+  var magic = new Magic(this.game, this.x + this.width-20, this.y + this.height / 4);
+  this.magicBalls.push(magic);
 }
 
 Player.prototype.keyEvents = function() {
   document.onkeydown = function(event) {
-    if (event.keyCode === 38 && this.y == this.y0) {
-      this.y -= 5;
-      this.speedY -= 10;
-    } 
+    if (event.keyCode === 38) {
+      this.y -= 15;
+      this.speedY -= 60;
+    }
+    if(event.keyCode === 40){
+      this.y += 15;
+      this.speedY += 60;
+    }
+    if(event.keyCode === 32){
+      this.shoot();
+    }
   }.bind(this);
 };
 
@@ -42,14 +64,14 @@ Player.prototype.animateImg = function() {
 };
 
 Player.prototype.move = function() {
-  var gravity = 0.3;
-
-
-  if (this.y >= this.y0) {
-    this.speedY = 1;
-    this.y = this.y0;
-  } else {
-    this.speedY += gravity;
-    this.y += this.speedY;
-  }
+ // var gravity = 0.3;
+//
+//
+ // if (this.y >= this.y0) {
+ //   this.speedY = 1;
+ //   this.y = this.y0;
+ // } else {
+ //   this.speedY += gravity;
+ //   this.y += this.speedY;
+ // }
 };
