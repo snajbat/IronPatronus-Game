@@ -5,11 +5,11 @@ window.onload = function() {
   var SPACE = 32;
   document.onkeydown = function(event) {
     if (event.keyCode == UP) {
-      game.player.y -= 17;
+      game.player.y -= 18;
       game.player.speedY -= 65;
     }
     if (event.keyCode == DOWN) {
-      game.player.y += 17;
+      game.player.y += 18;
       game.player.speedY += 65;
     }
     if (event.keyCode === SPACE) {

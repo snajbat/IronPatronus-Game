@@ -149,9 +149,9 @@ Game.prototype.KillDementors = function() {
     function(patron) {
       this.enemies.some(
         function(enemy) {
-          if ((patron.x + patron.width >= enemy.x) &&
+          if ((patron.x + patron.w >= enemy.x) &&
             (patron.x < enemy.x + enemy.width) &&
-            (patron.y + patron.height >= enemy.y) &&
+            (patron.y + patron.h >= enemy.y) &&
             (patron.y < enemy.y + enemy.height)) {
             this.enemies.splice(this.enemies.indexOf(enemy), 1);
             this.score += 5;
@@ -165,7 +165,7 @@ Game.prototype.KillDementors = function() {
 Game.prototype.win = function() {
   this.img = new Image();
   this.img.src = "../images/youwin.png";
-  if (this.score > 300) {
+  if (this.score >= 300) {
     this.ctx.drawImage(this.img, 160, 70);
     clearInterval(this.interval);
   }

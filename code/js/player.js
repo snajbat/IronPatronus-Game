@@ -51,6 +51,6 @@ Player.prototype.shoot = function() {
 };
 
 Player.prototype.patronus = function() {
-  var patron = new Magic(this.game, this.x + this.width - 170, this.y / 6);
+  var patron = new Magic(this.game, this.x-100, (this.y-150)/6);
   this.magicPatron.push(patron);
 };
