@@ -7,9 +7,12 @@ function Hipogrifo(game) {
   this.img = new Image();
   this.img.src = "../images/Hipogrifo.png";
 
-  this.width = 70;
-  this.height = 80;
+  this.width = 80;
+  this.height = 90;
   this.moveX = 4;
+  if(this.game.score >= 200 && this.game.score < 300){
+    this.moveX = 6;
+  }
 }
 
 Hipogrifo.prototype.draw = function() {

@@ -15,11 +15,10 @@ function Player(game) {
   this.magicBalls = [];
   this.magicPatron = [];
 
-  this.keyEvents();
+  //this.keyEvents();
 }
 Player.prototype.draw = function() {
   this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
-  // this.animateImg();
   this.magicBalls.forEach(function(magic) {
     magic.draw();
     magic.move();
@@ -51,36 +50,28 @@ Player.prototype.shoot = function() {
   this.magicBalls.push(magic);
 };
 
-Player.prototype.keyEvents = function() {
-  document.onkeydown = function(event) {
-    if (event.keyCode === 38) {
-      this.y -= 15;
-      this.speedY -= 60;
-    }
-    if (event.keyCode === 40) {
-      this.y += 15;
-      this.speedY += 60;
-    }
-    if (event.keyCode === 32) {
-      this.shoot();
-    }
-    if (this.game.score % 100 == 0) {
-      if (event.keyCode === 32) {
-        this.patronus();
-      }
-    }
-  }.bind(this);
-};
+//Player.prototype.keyEvents = function() {
+//  document.onkeydown = function(event) {
+//    if (event.keyCode === 38) {
+//      this.y -= 17;
+//      this.speedY -= 65;
+//    }
+//    if (event.keyCode === 40) {
+//      this.y += 17;
+//      this.speedY += 65;
+//    }
+//    if (event.keyCode === 32) {
+//      this.shoot();
+//    }
+//    if (this.game.score % 40 == 0 && this.game.score > 0) {
+//      if (event.keyCode === 32) {
+//        this.patronus();
+//      }
+//    }
+//  }.bind(this);
+//};
 
 Player.prototype.patronus = function() {
   var patron = new Magic(this.game, this.x + this.width - 170, this.y / 6);
   this.magicPatron.push(patron);
-};
-
-Player.prototype.animateImg = function() {
-  if (this.game.framesCounter % 6 === 0) {
-    this.img.frameIndex += 1;
-
-    if (this.img.frameIndex > 3) this.img.frameIndex = 0;
-  }
 };

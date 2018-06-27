@@ -26,7 +26,9 @@ Game.prototype.start = function() {
       this.KillDementors();
       this.win();
       this.newLevel();
-    }.bind(this),1000 / 80);
+    }.bind(this),
+    1000 / 80
+  );
 };
 
 Game.prototype.reset = function() {
@@ -43,7 +45,7 @@ Game.prototype.newEnemy = function() {
 };
 Game.prototype.newHipogrifo = function() {
   if (this.score >= 100) {
-  this.hipogrifos.push(new Hipogrifo(this));
+    this.hipogrifos.push(new Hipogrifo(this));
   }
 };
 
@@ -69,11 +71,11 @@ Game.prototype.draw = function() {
   this.hipogrifos.forEach(function(hipogrifo) {
     hipogrifo.draw();
   });
-  this.ctx.fillStyle = "gray";
-  this.ctx.fillRect(0, 0, 135, 40);
-  this.ctx.font = "20px sans-serif";
   this.ctx.fillStyle = "black";
-  this.ctx.fillText("Score: " + this.score, 25, 25);
+  this.ctx.fillRect(0, 0, 148, 44);
+  this.ctx.font = "25px sans-serif";
+  this.ctx.fillStyle = "white";
+  this.ctx.fillText("Score: " + this.score, 20, 31);
 };
 
 Game.prototype.moveAll = function() {
@@ -147,12 +149,10 @@ Game.prototype.KillDementors = function() {
     function(patron) {
       this.enemies.some(
         function(enemy) {
-          if (
-            patron.x + patron.width >= enemy.x + 20 &&
-            patron.x < enemy.x + enemy.width &&
-            patron.y + patron.height >= enemy.y &&
-            patron.y < enemy.y + enemy.height
-          ) {
+          if ((patron.x + patron.width >= enemy.x) &&
+            (patron.x < enemy.x + enemy.width) &&
+            (patron.y + patron.height >= enemy.y) &&
+            (patron.y < enemy.y + enemy.height)) {
             this.enemies.splice(this.enemies.indexOf(enemy), 1);
             this.score += 5;
           }
@@ -165,26 +165,22 @@ Game.prototype.KillDementors = function() {
 Game.prototype.win = function() {
   this.img = new Image();
   this.img.src = "../images/win.png";
-  if (this.score == 300) {
+  if (this.score >300) {
     this.ctx.drawImage(this.img, 294, 175.5);
     clearInterval(this.interval);
   }
 };
 
-Game.prototype.newLevel = function(){
-  this.level1 = new Image();
-  this.level1.src = "../images/level1.png";
-  this.level2 = new Image();
-  this.level2.src = "../images/level2.png";
-  this.level3 = new Image();
-  this.level3.src = "../images/level3.png";
-  if(this.score >= 0){
-    this.ctx.drawImage(this.level1, 475, 0, 50, 50)
+Game.prototype.newLevel = function() {
+  this.ctx.font = "35px sans-serif";
+  this.ctx.fillStyle = "white";
+  if (this.score >= 0 && this.score < 100) {
+    this.ctx.fillText("Level 1", 443, 40);
   }
-  if(this.score >= 100){
-    this.ctx.drawImage(this.level2, 475, 0, 50, 50)
+  if (this.score >= 100 && this.score < 200) {
+    this.ctx.fillText("Level 2", 443, 40);
   }
-  if(this.score >= 200){
-    this.ctx.drawImage(this.level3, 475, 0, 50, 50)
+  if (this.score >= 200) {
+    this.ctx.fillText("Level 3", 443, 40);
   }
-}
+};

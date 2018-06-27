@@ -1,15 +1,19 @@
 function Enemy(game) {
   this.game = game;
-  var random = Math.floor(Math.random() * 300);
+  var random = Math.floor(Math.random() * 350);
   this.x = this.game.canvas.width;
   this.y = 50 + random;
 
   this.img = new Image();
   this.img.src = "../images/TRAJE_DEMENTOR.png";
 
-  this.width = 70;
-  this.height = 80;
+  this.width = 60;
+  this.height = 70;
   this.moveX = 5;
+
+  if(this.game.score >= 200 && this.game.score < 300){
+    this.moveX = 6;
+  }
 }
 
 Enemy.prototype.draw = function() {
