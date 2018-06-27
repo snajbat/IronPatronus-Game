@@ -50,27 +50,6 @@ Player.prototype.shoot = function() {
   this.magicBalls.push(magic);
 };
 
-//Player.prototype.keyEvents = function() {
-//  document.onkeydown = function(event) {
-//    if (event.keyCode === 38) {
-//      this.y -= 17;
-//      this.speedY -= 65;
-//    }
-//    if (event.keyCode === 40) {
-//      this.y += 17;
-//      this.speedY += 65;
-//    }
-//    if (event.keyCode === 32) {
-//      this.shoot();
-//    }
-//    if (this.game.score % 40 == 0 && this.game.score > 0) {
-//      if (event.keyCode === 32) {
-//        this.patronus();
-//      }
-//    }
-//  }.bind(this);
-//};
-
 Player.prototype.patronus = function() {
   var patron = new Magic(this.game, this.x + this.width - 170, this.y / 6);
   this.magicPatron.push(patron);

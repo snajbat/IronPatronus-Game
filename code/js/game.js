@@ -164,9 +164,9 @@ Game.prototype.KillDementors = function() {
 
 Game.prototype.win = function() {
   this.img = new Image();
-  this.img.src = "../images/win.png";
-  if (this.score >300) {
-    this.ctx.drawImage(this.img, 294, 175.5);
+  this.img.src = "../images/youwin.png";
+  if (this.score > 300) {
+    this.ctx.drawImage(this.img, 160, 70);
     clearInterval(this.interval);
   }
 };

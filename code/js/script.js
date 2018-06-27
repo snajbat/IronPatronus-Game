@@ -1,19 +1,22 @@
 window.onload = function() {
   var game = new Game("canvas");
+  var UP = 38;
+  var DOWN = 40;
+  var SPACE = 32;
   document.onkeydown = function(event) {
-    if (event.keyCode === 38) {
+    if (event.keyCode == UP) {
       game.player.y -= 17;
       game.player.speedY -= 65;
     }
-    if (event.keyCode === 40) {
+    if (event.keyCode == DOWN) {
       game.player.y += 17;
       game.player.speedY += 65;
     }
-    if (event.keyCode === 32) {
+    if (event.keyCode === SPACE) {
       game.player.shoot();
     }
     if (game.score % 40 == 0 && game.score > 0) {
-      if (event.keyCode === 32) {
+      if (event.keyCode == SPACE) {
         game.player.patronus();
       }
     }
