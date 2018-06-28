@@ -35,12 +35,12 @@ window.onload = function() {
   };
   var img = document.getElementById("sound");
   img.onclick = function() {
-    if (img.getAttribute("src") == "../images/nosound.png") {
+    if (img.getAttribute("src") == "images/nosound.png") {
       game.open.play();
-      img.setAttribute("src", "../images/sound.png");
+      img.setAttribute("src", "images/sound.png");
     } else {
       game.open.pause();
-      img.setAttribute("src", "../images/nosound.png");
+      img.setAttribute("src", "images/nosound.png");
     }
   };
   document.getElementById("start").onclick = function() {

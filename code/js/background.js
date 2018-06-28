@@ -3,7 +3,7 @@ function Background(game) {
   this.x = 0;
   this.y = 0;
   this.img = new Image();
-  this.img.src = "../images/bgg.jpg";
+  this.img.src = "images/bgg.jpg";
 }
 
 Background.prototype.draw = function() {

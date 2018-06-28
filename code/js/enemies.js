@@ -5,7 +5,7 @@ function Enemy(game) {
   this.y = 50 + random;
 
   this.img = new Image();
-  this.img.src = "../images/TRAJE_DEMENTOR.png";
+  this.img.src = "images/TRAJE_DEMENTOR.png";
 
   this.width = 60;
   this.height = 70;

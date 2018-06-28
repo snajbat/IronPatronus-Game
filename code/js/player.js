@@ -6,7 +6,7 @@ function Player(game) {
   this.height = 60;
 
   this.img = new Image();
-  this.img.src = "../images/harry.png";
+  this.img.src = "images/harry.png";
 
   this.speedY = 1;
   this.speedX = 1;

@@ -4,7 +4,7 @@ function Magic(game, x, y) {
   this.y = y;
   this.moveX = 8;
   this.img = new Image();
-  this.img.src = "../images/MAGIC.png";
+  this.img.src = "images/MAGIC.png";
 
   this.width = 50;
   this.height = 60;

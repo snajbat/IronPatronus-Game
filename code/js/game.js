@@ -1,15 +1,15 @@
 function Game(canvasId) {
   this.canvas = document.getElementById(canvasId);
   this.ctx = this.canvas.getContext("2d");
-  this.music = new Audio("../audio/harry_potter_metal.mp3");
+  this.music = new Audio("audio/harry_potter_metal.mp3");
   //this.music.volume = 0.3;
   this.music.loop = true;
-  this.open = new Audio("../audio/harry_potter_theme.mp3");
-  this.winner = new Audio("../audio/winner.mp3");
-  this.soundmag = new Audio("../audio/magic.mp3");
-  this.levelup = new Audio("../audio/levelup.mp3");
+  this.open = new Audio("audio/harry_potter_theme.mp3");
+  this.winner = new Audio("audio/winner.mp3");
+  this.soundmag = new Audio("audio/magic.mp3");
+  this.levelup = new Audio("audio/levelup.mp3");
   this.levelup.volume = 0.4;
-  this.gameover = new Audio("../audio/gameover.mp3");
+  this.gameover = new Audio("audio/gameover.mp3");
   this.reset();
 }
 
@@ -177,7 +177,7 @@ Game.prototype.KillDementors = function() {
 
 Game.prototype.win = function() {
   this.img = new Image();
-  this.img.src = "../images/youwin.png";
+  this.img.src = "images/youwin.png";
   if (this.score >= 300) {
     this.music.pause();
     this.winner.play();

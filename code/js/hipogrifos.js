@@ -5,7 +5,7 @@ function Hipogrifo(game) {
   this.y = 50 + random;
 
   this.img = new Image();
-  this.img.src = "../images/Hipogrifo.png";
+  this.img.src = "images/Hipogrifo.png";
 
   this.width = 80;
   this.height = 90;
