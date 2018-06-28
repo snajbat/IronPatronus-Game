@@ -6,21 +6,26 @@ window.onload = function() {
   var ENTER = 13;
   document.onkeydown = function(event) {
     if (event.keyCode == UP) {
-      game.player.y -= 18;
-      game.player.speedY -= 65;
+      if(game.player.y > 0){
+        game.player.y -= 18;
+        game.player.speedY -= 65;
+      } else game.player.speedY = 0;
     }
     if (event.keyCode == DOWN) {
+      if(game.player.y + game.player.height < game.canvas.height){
       game.player.y += 18;
       game.player.speedY += 65;
+      } else game.player.speedY = 0;
     }
     if (event.keyCode === SPACE) {
       game.soundmag.play();
       game.player.shoot();
     }
     if(event.keyCode === ENTER && document.getElementById("start").disabled){
-      if(!confirm("Pause. Contiue??")){
+      game.music.pause();
+      if(!confirm("Pause. Continue??")){
         location.reload();
-      }
+      } else game.music.play();
     }
     if (game.score % 40 == 0 && game.score > 0) {
       if (event.keyCode == SPACE) {

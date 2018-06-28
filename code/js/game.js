@@ -2,13 +2,13 @@ function Game(canvasId) {
   this.canvas = document.getElementById(canvasId);
   this.ctx = this.canvas.getContext("2d");
   this.music = new Audio("../audio/harry_potter_metal.mp3");
-  this.music.volume = 0.1;
+  this.music.volume = 0.2;
   this.music.loop = true;
   this.open = new Audio("../audio/harry_potter_theme.mp3");
   this.winner = new Audio("../audio/winner.mp3");
   this.soundmag = new Audio("../audio/magic.mp3");
   this.levelup = new Audio("../audio/levelup.mp3");
-  this.gameover = new Audio("../audio/gameover.mp3")
+  this.gameover = new Audio("../audio/gameover.mp3");
   this.reset();
 }
 
@@ -159,10 +159,12 @@ Game.prototype.KillDementors = function() {
     function(patron) {
       this.enemies.some(
         function(enemy) {
-          if ((patron.x + patron.w >= enemy.x) &&
-            (patron.x < enemy.x + enemy.width) &&
-            (patron.y + patron.h >= enemy.y) &&
-            (patron.y < enemy.y + enemy.height)) {
+          if (
+            patron.x + patron.w >= enemy.x &&
+            patron.x < enemy.x + enemy.width &&
+            patron.y + patron.h >= enemy.y &&
+            patron.y < enemy.y + enemy.height
+          ) {
             this.enemies.splice(this.enemies.indexOf(enemy), 1);
             this.score += 5;
           }
@@ -195,7 +197,7 @@ Game.prototype.newLevel = function() {
   if (this.score >= 200) {
     this.ctx.fillText("Level 3", 443, 40);
   }
-  if(this.score == 100 || this.score == 200){
+  if (this.score == 100 || this.score == 200) {
     this.levelup.play();
   }
 };
