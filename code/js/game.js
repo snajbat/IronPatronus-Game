@@ -8,7 +8,6 @@ function Game(canvasId) {
   this.winner = new Audio("audio/winner.mp3");
   this.soundmag = new Audio("audio/magic.mp3");
   this.levelup = new Audio("audio/levelup.mp3");
-  this.levelup.volume = 0.4;
   this.gameover = new Audio("audio/gameover.mp3");
   this.reset();
 }

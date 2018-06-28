@@ -1,6 +1,6 @@
 function Enemy(game) {
   this.game = game;
-  var random = Math.floor(Math.random() * 350);
+  var random = Math.floor(Math.random() * 360);
   this.x = this.game.canvas.width;
   this.y = 50 + random;
 

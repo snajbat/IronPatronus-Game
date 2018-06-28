@@ -6,7 +6,7 @@ window.onload = function() {
   var ENTER = 13;
   document.onkeydown = function(event) {
     if (event.keyCode == UP) {
-      if (game.player.y > 0) {
+      if (game.player.y > 40) {
         game.player.y -= 18;
         game.player.speedY -= 65;
       } else game.player.speedY = 0;

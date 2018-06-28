@@ -1,6 +1,6 @@
 function Hipogrifo(game) {
   this.game = game;
-  var random = Math.floor(Math.random() * 300);
+  var random = Math.floor(Math.random() * 330);
   this.x = this.game.canvas.width;
   this.y = 50 + random;
 
