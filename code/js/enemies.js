@@ -11,8 +11,8 @@ function Enemy(game) {
   this.height = 70;
   this.moveX = 5;
 
-  if(this.game.score >= 200 && this.game.score < 300){
-    this.moveX = 6;
+  if (this.game.score >= 200 && this.game.score < 300) {
+    this.moveX = 7;
   }
 }
 

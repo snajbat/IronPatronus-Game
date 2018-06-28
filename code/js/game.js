@@ -2,12 +2,13 @@ function Game(canvasId) {
   this.canvas = document.getElementById(canvasId);
   this.ctx = this.canvas.getContext("2d");
   this.music = new Audio("../audio/harry_potter_metal.mp3");
-  this.music.volume = 0.2;
+  //this.music.volume = 0.3;
   this.music.loop = true;
   this.open = new Audio("../audio/harry_potter_theme.mp3");
   this.winner = new Audio("../audio/winner.mp3");
   this.soundmag = new Audio("../audio/magic.mp3");
   this.levelup = new Audio("../audio/levelup.mp3");
+  this.levelup.volume = 0.4;
   this.gameover = new Audio("../audio/gameover.mp3");
   this.reset();
 }
@@ -100,9 +101,9 @@ Game.prototype.collision = function() {
   this.enemies.some(
     function(enemy) {
       if (
-        this.player.x + this.player.width >= enemy.x + 25 &&
+        this.player.x + this.player.width >= enemy.x + 28 &&
         this.player.x < enemy.x + enemy.width &&
-        this.player.y + this.player.height >= enemy.y + 15 &&
+        this.player.y + this.player.height >= enemy.y + 17 &&
         this.player.y < enemy.y + enemy.height - 10
       ) {
         clearInterval(this.interval);
@@ -116,7 +117,7 @@ Game.prototype.collision = function() {
         this.player.x + this.player.width >= hipogrifo.x + 25 &&
         this.player.x < hipogrifo.x + hipogrifo.width &&
         this.player.y + this.player.height >= hipogrifo.y + 15 &&
-        this.player.y < hipogrifo.y + hipogrifo.height - 10
+        this.player.y < hipogrifo.y + hipogrifo.height - 15
       ) {
         clearInterval(this.interval);
         this.gameOver();

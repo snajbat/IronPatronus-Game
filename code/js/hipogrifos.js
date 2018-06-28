@@ -10,7 +10,7 @@ function Hipogrifo(game) {
   this.width = 80;
   this.height = 90;
   this.moveX = 4;
-  if(this.game.score >= 200 && this.game.score < 300){
+  if (this.game.score >= 200 && this.game.score < 300) {
     this.moveX = 6;
   }
 }

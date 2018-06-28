@@ -8,7 +8,7 @@ function Magic(game, x, y) {
 
   this.width = 50;
   this.height = 60;
-  
+
   this.w = 500;
   this.h = 500;
 }
